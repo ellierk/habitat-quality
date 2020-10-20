@@ -1,0 +1,55 @@
+---
+title: "insect analysis"
+author: "Ellie Kremer"
+date: "10/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Load in data
+```{r}
+library(dplyr)
+library(ggplot2)
+
+insect = read.csv("Bug data - Sheet2.csv")
+
+insect.2015 = insect %>% filter(Site == 2015)
+insect.2007 = insect %>% filter(Site == 2007) 
+insect.2013 = insect %>% filter(Site == 2013) 
+```
+
+Total Abundance by order
+```{r}
+# 2013
+ggplot(data = insect.2013, aes(Order)) + geom_bar()
+
+# 2015
+ggplot(data = insect.2015, aes(Order)) + geom_bar()
+
+# 2007
+ggplot(data = insect.2007, aes(Order)) + geom_bar()
+```
+
