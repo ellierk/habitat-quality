@@ -27,7 +27,7 @@ df1 <- read.csv("pan_fix.csv")
   
 df2 <- read.csv("sweep_fix.csv")
   
-df3 <- read.csv("vegetationdata_updated.csv")
+df3 <- read.csv("vegetationdata_updatedtest.csv")
 
 panmarsh <- df1[df1$Strata == "J",]
 
@@ -143,7 +143,7 @@ sweep<-as.matrix(df2[,5:12])
 ##habitat.sqrt<-sqrt(habitat) #square root transform
 sweep.dist<-vegdist(sweep, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
 
-df2<-na.omit(df3)
+df3<-na.omit(df3)
 ## check/fix!!
 
 plant<-as.matrix(df3[,4:12])
