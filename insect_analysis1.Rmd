@@ -58,11 +58,12 @@ ggplot(data = insect.2007, aes(Order)) + geom_bar()
 Abund by order        
 ```{r}
 abund.order = insect %>% group_by(Site, Date, Order) %>% summarise(sum(Abundance)) %>% rename(Abund = 'sum(Abundance)')
-test = abund.order %>% filter(Site == 2007) %>% group_by(Order) %>% summarise(sum(Abund)) %>% rename(Abund = 'sum(Abund)')
 
-ggplot(data = abund.order %>% filter(Site == 2013), aes(Order)) + geom_bar()
-ggplot(data = abund.order %>% filter(Site == 2015), aes(Order)) + geom_bar()
+abund.order %>% filter(Site == 2007) %>% group_by(Order) %>% summarise(sum(Abund)) %>% rename(Abund = 'sum(Abund)') %>% ggplot(aes(Order, Abund)) + geom_bar(stat = "identity")
 
+abund.order %>% filter(Site == 2013) %>% group_by(Order) %>% summarise(sum(Abund)) %>% rename(Abund = 'sum(Abund)') %>% ggplot(aes(Order, Abund)) + geom_bar(stat = "identity")
+
+abund.order %>% filter(Site == 2015) %>% group_by(Order) %>% summarise(sum(Abund)) %>% rename(Abund = 'sum(Abund)') %>% ggplot(aes(Order, Abund)) + geom_bar(stat = "identity")
 
 ```
 Abundance of each order each day, averaged per site
