@@ -1,0 +1,198 @@
+---
+title: "Bug Kids"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r packages, echo = FALSE}
+library(vegan)
+library(ggplot2)
+library(tidyr)
+library(plyr)
+library(mgcv)
+library(randomForest)
+require(caTools)
+library(reshape2)
+
+#source('C:/Users/jeffr/Documents/School/MATH 6315/traditionalForwardBackward_lm.R')
+#source('C:/Users/jeffr/Documents/School/MATH 6315/diagPlots.R')
+#source('C:/Users/jeffr/Documents/School/MATH 6315/augPairs.R')
+
+df1 <- read.csv("pan_fix.csv")
+  
+df2 <- read.csv("sweep_fix.csv")
+  
+df3 <- read.csv("vegetationdata_updated.csv")
+
+panmarsh <- df1[df1$Strata == "J",]
+
+panNC <- df1[df1$Strata == "NC",]
+
+panHP <- df1[df1$Strata == "HP",]
+
+sweepjuncus <- df2[df2$Strata == "J",]
+
+sweepNC <- df2[df2$Strata == "NC",]
+
+sweepHP <- df2[df2$Strata == "HP",]
+
+plantmarsh <- df3[df3$Strata == "J",]
+
+plantNC <- df3[df3$Strata == "NC",]
+
+plantHP <- df3[df3$Strata == "HP",]
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r rarefaction setup, echo=FALSE}
+
+juncuspmat <- as.matrix(panmarsh[,5:13])
+
+NCpmat <- as.matrix(panNC[,5:13])
+
+HPpmat <- as.matrix(panHP[,5:13])
+
+juncussmat <- as.matrix(sweepjuncus[,5:12])
+
+NCsmat <- as.matrix(sweepNC[,5:12])
+
+HPsmat <- as.matrix(sweepHP[,5:12])
+
+juncusplmat <- as.matrix(plantmarsh[,4:12])
+
+NCplmat <- as.matrix(plantNC[,4:12])
+
+HPplmat <- as.matrix(plantHP[,4:12])
+
+```
+
+```{r rarefaction plots}
+
+juncusprar<- specaccum(juncuspmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+NCprar<- specaccum(NCpmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+HPprar<- specaccum(HPpmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(juncusprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+par(new = TRUE)
+plot(NCprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+par(new = TRUE)
+plot(HPprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+
+juncusrar<- specaccum(juncussmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+NCsrar<- specaccum(NCsmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+HPsrar<- specaccum(HPsmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(juncusrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+par(new = TRUE)
+plot(NCsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+par(new = TRUE)
+plot(HPsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+
+juncusplrar<- specaccum(juncusplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+NCplrar<- specaccum(NCplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+HPplrar<- specaccum(HPplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(juncusplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+par(new = TRUE)
+plot(NCplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+par(new = TRUE)
+plot(HPplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+```
+```{r one-way PERMANOVA setup, echo=FALSE}
+
+df1<-na.omit(df1)
+
+pan<-as.matrix(df1[,5:13])
+panMETA<-df1[,c(1:4)]
+##habitat.sqrt<-sqrt(habitat) #square root transform
+pan.dist<-vegdist(pan, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
+
+df2<-na.omit(df2)
+
+sweep<-as.matrix(df2[,5:12])
+##habitat.sqrt<-sqrt(habitat) #square root transform
+sweep.dist<-vegdist(sweep, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
+
+df2<-na.omit(df3)
+## check/fix!!
+
+plant<-as.matrix(df3[,4:12])
+##habitat.sqrt<-sqrt(habitat) #square root transform
+plant.dist<-vegdist(plant, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
+```
+
+```{r dispersion, echo = FALSE}
+
+pan.dispersion <- betadisper(pan.dist, group=df1$Strata)
+permutest(pan.dispersion)
+plot(pan.dispersion, hull=FALSE, ellipse=TRUE)
+
+sweep.dispersion <- betadisper(sweep.dist, group=df2$Strata)
+permutest(sweep.dispersion)
+plot(sweep.dispersion, hull=FALSE, ellipse=TRUE)
+
+plant.dispersion <- betadisper(plant.dist, group=df3$Strata)
+permutest(plant.dispersion)
+plot(plant.dispersion, hull=FALSE, ellipse=TRUE)
+```
+
+```{r one-way PERMANOVA all nekton}
+panPERM<-adonis2(pan.dist~Strata, data=df1, permutations = 999, method = "bray", strata="PLOT")
+panPERM
+
+simper_pan<-simper(pan, panMETA$Strata, permutations = 999)
+summary(simper_pan, ordered=TRUE, digits=max(3))
+
+sweepPERM<-adonis2(sweep.dist~Strata, data=df2, permutations = 999, method = "bray", strata="PLOT")
+sweepPERM
+
+plantPERM<-adonis2(plant.dist~Strata, data=df3, permutations = 999, method = "bray", strata="PLOT")
+plantPERM
+```
+```{r one-way PERMANOVA most abundant, echo=FALSE}
+
+df2<-na.omit(df2)
+
+habitat<-as.matrix(df2[,16:42])
+habitat.sqrt<-sqrt(habitat) #square root transform
+habitat.dist<-vegdist(habitat.sqrt, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
+
+habitatPERM<-adonis2(habitat.dist~habitat, data=df2, permutations = 999, method = "bray", strata="PLOT")
+habitatPERM
+
+habitatMETA<-df2[,c(1:15)]
+
+simper_habitat<-simper(habitat, habitatMETA$habitat, permutations = 999)
+summary(simper_habitat, ordered=TRUE, digits=max(3))
+
+```
