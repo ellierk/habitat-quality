@@ -29,7 +29,8 @@ plot(pressure)
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
 ```{r}
-veg = read.csv("Vegetation Data - Sheet4.csv")
+veg = read.csv("vegetationdata_updatedtest.csv")
+
 ```
 
 data need to be vertical rather than horizontal?

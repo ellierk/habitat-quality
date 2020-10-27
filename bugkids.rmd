@@ -83,15 +83,15 @@ HPprar<- specaccum(HPpmat, method = "random", permutations = 999, conditioned = 
 
 plot(juncusprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
-     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
 par(new = TRUE)
 plot(NCprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
-     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
 par(new = TRUE)
 plot(HPprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
-     ylim = c(1,9), xlab = "YPT Sets", ylab = "Species")
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
 legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
 
 juncusrar<- specaccum(juncussmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
@@ -100,15 +100,15 @@ HPsrar<- specaccum(HPsmat, method = "random", permutations = 999, conditioned = 
 
 plot(juncusrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
-     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
 par(new = TRUE)
 plot(NCsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
-     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
 par(new = TRUE)
 plot(HPsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
-     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Species")
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
 legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
 
 juncusplrar<- specaccum(juncusplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
@@ -180,17 +180,17 @@ plantPERM<-adonis2(plant.dist~Strata, data=df3, permutations = 999, method = "br
 plantPERM
 ```
 ```{r one-way PERMANOVA most abundant, echo=FALSE}
+# skip this part?
+df3<-na.omit(df3)
 
-df2<-na.omit(df2)
-
-habitat<-as.matrix(df2[,16:42])
+habitat<-as.matrix(df3[,16:42])
 habitat.sqrt<-sqrt(habitat) #square root transform
 habitat.dist<-vegdist(habitat.sqrt, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
 
 habitatPERM<-adonis2(habitat.dist~habitat, data=df2, permutations = 999, method = "bray", strata="PLOT")
 habitatPERM
 
-habitatMETA<-df2[,c(1:15)]
+habitatMETA<-df3[,c(1:15)]
 
 simper_habitat<-simper(habitat, habitatMETA$habitat, permutations = 999)
 summary(simper_habitat, ordered=TRUE, digits=max(3))
