@@ -47,6 +47,7 @@ plantNC <- df3[df3$Strata == "NC",]
 
 plantHP <- df3[df3$Strata == "HP",]
 
+
 ```
 
 ## Including Plots
@@ -196,3 +197,31 @@ simper_habitat<-simper(habitat, habitatMETA$habitat, permutations = 999)
 summary(simper_habitat, ordered=TRUE, digits=max(3))
 
 ```
+
+```{r}
+pan2007 <- df1 %>% filter(Site == "2007")
+
+pan2013 <- df1 %>% filter(Site == "2013")
+
+pan2015 <- df1 %>% filter(Site == "2015")
+
+mat2007 <- as.matrix(pan2007[,5:13])
+
+mat2013 <- as.matrix(pan2013[,5:13])
+
+mat2015 <- as.matrix(pan2015[,5:13])
+
+sw.div2007 = mean(diversity(mat2007, index = "shannon"))
+sd(diversity(mat2007, index = "shannon"))
+
+sw.div2013 = mean(diversity(mat2013, index = "shannon"))
+sd(diversity(mat2013, index = "shannon"))
+
+sw.div2015 = mean(diversity(mat2015, index = "shannon"))
+sd(diversity(mat2015, index = "shannon"))
+```
+
+```{r}
+
+```
+

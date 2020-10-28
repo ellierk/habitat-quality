@@ -1,0 +1,86 @@
+---
+title: "Abundance Graphs"
+author: "Camryn Blawas"
+date: "10/28/2020"
+output:
+  word_document: default
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+jeffpans <- read.csv("top10pan.csv")
+jeffsweeps <- read.csv("top10sweep.csv")
+jeffplants <- read.csv("top10plant.csv") 
+
+```
+
+```{r}
+top5 = c("Diptera", "Hemiptera", "Mantophasmatodea", "Araneae", "Coleoptera")
+
+jeffpans.final <- jeffpans %>% filter(jeffpans$species %in% top5) %>% group_by(Site, species) %>% summarise(sum(cpue))
+```
+
+```{r}
+jeffpans.final$abundance<-jeffpans.final$`sum(cpue)`
+jeffpans.final$Order <- jeffpans.final$species
+jeffpans.final$Site<-as.factor(jeffpans.final$Site)
+```
+
+```{r}
+ggplot(jeffpans.final, aes(fill=order, y=abundance, x=Site)) + 
+    geom_bar(position="stack", stat="identity") +
+    ggtitle("Pans") +
+    xlab("Site")+
+    ylab("Abundance")+
+    labs(title = "Order")+
+    scale_fill_manual(values=c("#C75F24", "#C79F59", "#617983", "#868569", "#601303")) +
+    theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
+```
+
+```{r}
+jeffsweeps.final <- jeffsweeps %>% filter(jeffsweeps$species %in% top5) %>% group_by(Site, species) %>% summarise(sum(cpue))
+```
+
+```{r}
+jeffsweeps.final$abundance<-jeffsweeps.final$`sum(cpue)`
+jeffsweeps.final$order <- jeffsweeps.final$species
+jeffsweeps.final$Site<-as.factor(jeffsweeps.final$Site)
+```
+
+```{r}
+ggplot(jeffsweeps.final, aes(fill=order, y=abundance, x=Site)) + 
+    geom_bar(position="stack", stat="identity") +
+    ggtitle("Sweeps") +
+    xlab("Site")+
+    ylab("Abundance")+
+    scale_fill_manual(values=c("#C75F24", "#C79F59", "#617983", "#868569", "#601303")) +
+    theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
+```
+
+
+```{r}
+jeffplants.final <- jeffplants %>% group_by(site, species) %>% summarise(sum(cpue))
+```
+
+```{r}
+jeffplants.final$abundance<-jeffplants.final$`sum(cpue)`
+#jeffplants.final$order <- jeffplants.final$species
+jeffplants.final$site<-as.factor(jeffplants.final$site)
+```
+
+```{r}
+ggplot(jeffplants.final, aes(fill=species, y=abundance, x=site)) + 
+    geom_bar(position="stack", stat="identity") +
+    ggtitle("Plants") +
+    xlab("Site")+
+    ylab("Shoot Count")+
+    scale_fill_manual(values=wes_palette(n=5, name="Darjeeling2")) +
+    theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
+```
