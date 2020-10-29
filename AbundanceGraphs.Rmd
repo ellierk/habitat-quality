@@ -81,6 +81,7 @@ ggplot(jeffplants.final, aes(fill=species, y=abundance, x=site)) +
     ggtitle("Plants") +
     xlab("Site")+
     ylab("Shoot Count")+
-    scale_fill_manual(values=wes_palette(n=5, name="Darjeeling2")) +
+    #scale_fill_manual(values=wes_palette(n=5, name="Darjeeling2")) +
+    scale_fill_manual(values=c("#464b6b", "#638572", "#60aab5", "#c7ab10", "#265c20")) +
     theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
 ```
