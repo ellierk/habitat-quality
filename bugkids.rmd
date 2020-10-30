@@ -148,6 +148,7 @@ df3<-na.omit(df3)
 ## check/fix!!
 
 plant<-as.matrix(df3[,4:12])
+plantMETA<-df3[,c(1:3)]
 ##habitat.sqrt<-sqrt(habitat) #square root transform
 plant.dist<-vegdist(plant, method='bray', na.rm = TRUE) #Bray-curtis dissimilarity matrix
 ```
@@ -177,8 +178,12 @@ summary(simper_pan, ordered=TRUE, digits=max(3))
 sweepPERM<-adonis2(sweep.dist~Strata, data=df2, permutations = 999, method = "bray", strata="PLOT")
 sweepPERM
 
-plantPERM<-adonis2(plant.dist~Strata, data=df3, permutations = 999, method = "bray", strata="PLOT")
+plantPERM<-adonis2(plant.dist~site, data=df3, permutations = 999, method = "bray", strata="PLOT")
 plantPERM
+
+simper_plant<-simper(plant, plantMETA$site, permutations = 999)
+summary(simper_plant, ordered=TRUE, digits=max(3))
+
 ```
 ```{r one-way PERMANOVA most abundant, echo=FALSE}
 # skip this part?
