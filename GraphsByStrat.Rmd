@@ -1,12 +1,20 @@
 ---
-title: "Abundance Graphs"
-author: "Camryn Blawas"
-date: "10/28/2020"
-output:
-  pdf_document: default
-  word_document: default
-  html_document: default
+title: "AbundByStrataGraphs"
+author: "Ellie Kremer"
+date: "11/3/2020"
+output: html_document
 ---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -25,20 +33,19 @@ ellieplants <- read.csv("top6plant_EK.csv")
 ```{r}
 top5 = c("Diptera", "Hemiptera", "Mantophasmatodea", "Araneae", "Coleoptera")
 
-jeffpans.final <- jeffpans %>% filter(jeffpans$species %in% top5) %>% group_by(Site, species) %>% summarise(sum(cpue))
+jeffpans.strat <- jeffpans %>% filter(jeffpans$species %in% top5) %>% group_by(Strata, species) %>% summarise(sum(cpue))
+```
+```{r}
+jeffpans.strat$abundance<-jeffpans.strat$`sum(cpue)`
+jeffpans.strat$Order <- jeffpans.strat$species
+jeffpans.strat$Strata<-as.factor(jeffpans.strat$Strata)
 ```
 
 ```{r}
-jeffpans.final$abundance<-jeffpans.final$`sum(cpue)`
-jeffpans.final$Order <- jeffpans.final$species
-jeffpans.final$Site<-as.factor(jeffpans.final$Site)
-```
-
-```{r}
-ggplot(jeffpans.final, aes(fill=Order, y=abundance, x=Site)) + 
+ggplot(jeffpans.strat, aes(fill=Order, y=abundance, x=Strata)) + 
     geom_bar(position="stack", stat="identity") +
     ggtitle("Pans") +
-    xlab("Site")+
+    xlab("Strata")+
     ylab("Abundance")+
     labs(title = "Pan")+
     scale_fill_manual(values=c("#C75F24", "#C79F59", "#617983", "#0c5c2a", "#601303")) +
@@ -46,20 +53,20 @@ ggplot(jeffpans.final, aes(fill=Order, y=abundance, x=Site)) +
 ```
 
 ```{r}
-jeffsweeps.final <- jeffsweeps %>% filter(jeffsweeps$species %in% top5) %>% group_by(Site, species) %>% summarise(sum(cpue))
+jeffsweeps.strat <- jeffsweeps %>% filter(jeffsweeps$species %in% top5) %>% group_by(Strata, species) %>% summarise(sum(cpue))
 ```
 
 ```{r}
-jeffsweeps.final$abundance<-jeffsweeps.final$`sum(cpue)`
-jeffsweeps.final$order <- jeffsweeps.final$species
-jeffsweeps.final$Site<-as.factor(jeffsweeps.final$Site)
+jeffsweeps.strat$abundance<-jeffsweeps.strat$`sum(cpue)`
+jeffsweeps.strat$order <- jeffsweeps.strat$species
+jeffsweeps.strat$Strata<-as.factor(jeffsweeps.strat$Strata)
 ```
 
 ```{r}
-ggplot(jeffsweeps.final, aes(fill=order, y=abundance, x=Site)) + 
+ggplot(jeffsweeps.strat, aes(fill=order, y=abundance, x=Strata)) + 
     geom_bar(position="stack", stat="identity") +
     ggtitle("Sweeps") +
-    xlab("Site")+
+    xlab("Strata")+
     ylab("Abundance")+
     scale_fill_manual(values=c("#C75F24", "#C79F59", "#617983", "#0c5c2a", "#601303")) +
     theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
@@ -67,28 +74,22 @@ ggplot(jeffsweeps.final, aes(fill=order, y=abundance, x=Site)) +
 
 
 ```{r}
-jeffplants.final <- jeffplants %>% group_by(site, species) %>% summarise(sum(cpue))
+ellieplants.strat <- ellieplants %>% group_by(Strata, species) %>% summarise(sum(cpue))
 
-ellieplants.final <- ellieplants %>% group_by(site, species) %>% summarise(sum(cpue))
+ellieplants.strat$abundance<-ellieplants.strat$`sum(cpue)`
+
+ellieplants.strat$Strata<-as.factor(ellieplants.strat$Strata)
 ```
 
 ```{r}
-jeffplants.final$abundance<-jeffplants.final$`sum(cpue)`
-#jeffplants.final$order <- jeffplants.final$species
-jeffplants.final$site<-as.factor(jeffplants.final$site)
-
-ellieplants.final$abundance<-ellieplants.final$`sum(cpue)`
-#jeffplants.final$order <- jeffplants.final$species
-ellieplants.final$site<-as.factor(ellieplants.final$site)
-```
-
-```{r}
-ggplot(ellieplants.final, aes(fill=species, y=abundance, x=site)) + 
+ggplot(ellieplants.strat, aes(fill=species, y=abundance, x=Strata)) + 
     geom_bar(position="stack", stat="identity") +
     ggtitle("Plants") +
-    xlab("Site")+
+    xlab("Strata")+
     ylab("Shoot Count")+
     #scale_fill_manual(values=wes_palette(n=5, name="Darjeeling2")) +
     scale_fill_manual(values=c("#6e0475", "#638572", "#60aab5", "#c7ab10", "#265c20", "#0d0787")) +
     theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
 ```
+
+

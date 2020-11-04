@@ -1,0 +1,58 @@
+---
+title: "DiversityComp"
+author: "Ellie Kremer"
+date: "11/3/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+```{r}
+library(vegan)
+library(ggplot2)
+library(dplyr)
+library(tidyr)
+```
+
+```{r}
+
+df1 <- read.csv("pan_fix.csv")
+  
+df2 <- read.csv("sweep_fix.csv")
+  
+df3 <- read.csv("vegetationdata_updatedtest.csv")
+```
+
+```{r}
+pmat <- as.matrix(df1[,5:13])
+sw.pan = df1 %>% mutate(sw.pancalc = diversity(pmat))
+
+sweepmat <- as.matrix(df2[,5:12])
+sw.sweep = df2 %>% mutate(sw.sweepcalc = diversity(sweepmat))
+
+plantmat <- as.matrix(df3[,4:12])
+sw.plant = df3 %>% mutate(sw.plantcalc = diversity(plantmat))
+```
+
+```{r}
+pan.comparison = sw.pan %>% select(Site:Date, sw.pancalc) %>% unite(col = ID, Site,Strata,Date) %>% select(-Months)
+
+sweep.comparison = sw.sweep %>% select(Site:Date, sw.sweepcalc) %>% unite(col = ID, Site,Strata,Date) %>% select(-Months)
+
+plant.comparison = sw.plant %>% select(site:Strata, sw.plantcalc) %>% unite(col = ID, site,Strata,date)
+
+div.comp = left_join(plant.comparison, pan.comparison) %>% left_join(sweep.comparison)
+```
+
+```{r}
+plot(div.comp$sw.plantcalc, div.comp$sw.pancalc)
+plot(div.comp$sw.plantcalc, div.comp$sw.sweepcalc)
+```
+
