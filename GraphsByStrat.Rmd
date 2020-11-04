@@ -74,11 +74,13 @@ ggplot(jeffsweeps.strat, aes(fill=order, y=abundance, x=Strata)) +
 
 
 ```{r}
-ellieplants.strat <- ellieplants %>% group_by(Strata, species) %>% summarise(sum(cpue))
+ellieplants.strat <- ellieplants %>% group_by(Strata, species, cpue) %>% summarise()
 
-ellieplants.strat$abundance<-ellieplants.strat$`sum(cpue)`
+ellieplants.strat$abundance<-ellieplants.strat$cpue
 
 ellieplants.strat$Strata<-as.factor(ellieplants.strat$Strata)
+
+
 ```
 
 ```{r}

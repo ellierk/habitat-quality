@@ -69,7 +69,7 @@ ggplot(jeffsweeps.final, aes(fill=order, y=abundance, x=Site)) +
 ```{r}
 jeffplants.final <- jeffplants %>% group_by(site, species) %>% summarise(sum(cpue))
 
-ellieplants.final <- ellieplants %>% group_by(site, species) %>% summarise(sum(cpue))
+ellieplants.final <- ellieplants %>% group_by(site, species, cpue) %>% summarise()
 ```
 
 ```{r}
@@ -77,7 +77,7 @@ jeffplants.final$abundance<-jeffplants.final$`sum(cpue)`
 #jeffplants.final$order <- jeffplants.final$species
 jeffplants.final$site<-as.factor(jeffplants.final$site)
 
-ellieplants.final$abundance<-ellieplants.final$`sum(cpue)`
+ellieplants.final$abundance<-ellieplants.final$cpue
 #jeffplants.final$order <- jeffplants.final$species
 ellieplants.final$site<-as.factor(ellieplants.final$site)
 ```
