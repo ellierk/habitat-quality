@@ -63,11 +63,13 @@ ggplot(data = div.comp, aes(sw.plantcalc, sw.pancalc, col = Site))+ geom_point()
 filt2013 = div.comp %>% filter(Site == "2013")  
 trend2013 = lm(sw.plantcalc ~ sw.pancalc, data = filt2013)
 summary(trend2013)
-
+```
+``` {r}
 filt2015 = div.comp %>% filter(Site == "2015")  
 trend2015 = lm(sw.plantcalc ~ sw.pancalc, data = filt2015)
 summary(trend2015)
-
+```
+```{r}
 filt2007 = div.comp %>% filter(Site == "2007")  
 trend2007 = lm(sw.plantcalc ~ sw.pancalc, data = filt2007)
 summary(trend2007)
@@ -78,15 +80,18 @@ plot(div.comp$sw.plantcalc, div.comp$sw.sweepcalc)
 
 ggplot(data = div.comp, aes(sw.plantcalc, sw.sweepcalc, col = Site))+ geom_point() + geom_smooth(method=lm)+ labs(title = "Comparison of Plant and Insect Biodiversity: Sweep survey") + xlab("Diversity of Plants") + ylab("Insects Diversity in Sweep survey")
 ```
+
 ```{r}
 filt20132 = div.comp %>% filter(Site == "2013")  
 trend20132 = lm(sw.plantcalc ~ sw.sweepcalc, data = filt20132)
 summary(trend20132)
-
+```
+```{r}
 filt20152 = div.comp %>% filter(Site == "2015")  
 trend20152 = lm(sw.plantcalc ~ sw.sweepcalc, data = filt20152)
 summary(trend20152)
-
+```
+```{r}
 filt20072 = div.comp %>% filter(Site == "2007")  
 trend20072 = lm(sw.plantcalc ~ sw.sweepcalc, data = filt20072)
 summary(trend20072)
