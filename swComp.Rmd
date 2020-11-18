@@ -56,7 +56,7 @@ div.comp = left_join(plant.comparison, pan.comparison) %>% left_join(sweep.compa
 ```{r}
 plot(div.comp$sw.plantcalc, div.comp$sw.pancalc)
 
-ggplot(data = div.comp, aes(sw.plantcalc, sw.pancalc, col = Site))+ geom_point() + geom_smooth(method=lm) + labs(title = "Comparison of Plant and Insect Biodiversity: Pan traps") + xlab("Diversity of Plants") + ylab("Insects Diversity in Pan traps")
+ggplot(data = div.comp, aes(sw.plantcalc, sw.pancalc, col = Site))+ geom_point(size = 2) + geom_smooth(method=lm) + labs(title = "Pan traps") + xlab("Diversity of Plants") + ylab("Insects Diversity in Pan traps")
 ```
 
 ```{r}
@@ -78,7 +78,7 @@ summary(trend2007)
 ```{r}
 plot(div.comp$sw.plantcalc, div.comp$sw.sweepcalc)
 
-ggplot(data = div.comp, aes(sw.plantcalc, sw.sweepcalc, col = Site))+ geom_point() + geom_smooth(method=lm)+ labs(title = "Comparison of Plant and Insect Biodiversity: Sweep survey") + xlab("Diversity of Plants") + ylab("Insects Diversity in Sweep survey")
+ggplot(data = div.comp, aes(sw.plantcalc, sw.sweepcalc, col = Site))+ geom_point(size = 2) + geom_smooth(method=lm)+ labs(title = "Sweep survey") + xlab("Diversity of Plants") + ylab("Insects Diversity in Sweep survey")
 ```
 
 ```{r}

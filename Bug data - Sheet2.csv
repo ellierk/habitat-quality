@@ -1,73 +1,73 @@
 Site,Strata,Date,Collection_Method,Order,Morphospecies,Abundance,Notes,Photo,Checked
-2015,NC,9/16,Sweep,Araneae,e1,2,,araneae_morpho1,x
-2015,NC,9/16,Sweep,Araneae,e2,1,,araneae_morpho1,x
-2015,NC,9/16,Sweep,Coleoptera,e3,6,,coleoptera_morpho3,x
-2015,NC,9/16,Sweep,Coleoptera,e4,3,,coleoptera_morpho4,x
-2015,NC,9/16,Sweep,Unidentified,e5,1,,unid_morpho5,x
-2007,J,9/16,Pan,Diptera,e6,3,Culicidae,dip_morphoe6,x
-2007,J,9/16,Pan,Diptera,e7,1,,dip_morphoe7,x
-2013,NA,9/16,Pan,Diptera,c1,9,gnat,,x
-2013,NA,9/16,Pan,Diptera,c2,3,fly,diptera_morphoc2,x
-2013,NA,9/16,Pan,Diptera,e6,1,mosquito,diptera_morphoc3,x
-2013,NA,9/16,Pan,Diptera,c4,1,,diptera_morphoc4,x
-2013,NA,9/16,Pan,Hemiptera,c5,1,small hopper,hemiptera_morphoc5,x
-2015,J,9/16,Sweep,Coleoptera,e3,9,,,x
-2015,J,9/16,Sweep,Diptera,e8,1,,dip_morphoe8,x
-2015,J,9/16,Pan,Diptera,c2,1,,,x
-2015,J,9/16,Pan,Diptera,c6,1,super very tiny,diptera_morphoc6,x
-2007,NC,9/16,Pan,Hemiptera,e6,1,,,x
-2007,NC,9/16,Pan,Mantophasmatodea,e9,1,,manto_morphoe9,x
-2013,NA,9/23,Pan,Diptera,e6,4,trap f-a and f-c flipped,dip_morphoe6,x
-2013,NA,9/23,Pan,Diptera,c2,5,trap f-a and f-c flipped,diptera_morphoc2,x
-2013,NA,9/23,Pan,Diptera,c7,2,trap f-a and f-c flipped,diptera_morphoc7,x
-2013,NA,9/23,Light Trap,Araneae,c8,1,trap f-a and f-c flipped,aranaea_morphoc8,x
-2013,NA,9/23,Light Trap,Araneae,c10,1,trap f-a and f-c flipped,aranaea_morphoc10,x
-2013,NA,9/23,Light Trap,Unidentified,c9,1,trap f-a and f-c flipped,unid_morphoc9,x
-2013,NA,9/23,sweep,Hymenoptera,e21,1,not collected,,x
-2007,NC,9/23,sweep,Lepidoptera,e10,1,,lep_morphoe10,x
-2007,NC,9/23,sweep,Hemiptera,e11,1,,hemip_morphoe11,x
-2007,NC,9/23,sweep,Coleoptera,e12,1,,col_morphoe12,x
-2007,NC,9/23,sweep,Hemiptera,e13,3,Cicadellidae ,hemip_morphoe13,x
-2007,NC,9/23,sweep,Coleoptera,e14,1,,unid_morphoe14,x
-2015,NC,9/23,Sweep,Coleoptera,e4,1,,coleoptera_morpho4,x
-2015,NC,9/23,Sweep,Coleoptera,e3,1,,coleoptera_morpho3,x
-2015,NC,9/23,Sweep,Araneae,c11,1,,aranaea_morphoc11,x
-2015,J,9/23,Pan,Diptera,e6,2,mosquito,diptera_morphoc3,x
-2015,J,9/23,Pan,Araneae,c12,1,,unid_morphoc12,x
-2007,NC,9/23,pan,Diptera,e6,2,"mosquito, trap f-d tipped",,x
-2007,NC,9/23,pan,Diptera,e7,2,trap f-d flipped,,x
-2007,NC,9/23,pan,Diptera,e4,2,trap f-d flipped,,x
-2007,NC,9/23,pan,Coleoptera,e15,2,trap f-d flipped,unid_morphoe15,x
-2007,NC,9/23,pan,Diptera,e16,1,"tiny, trap f-d flipped",dip_morphoe16,x
-2007,NA,9/23,Light Trap,Mantophasmatodea,e9,1,trap a (J) flipped,manto_morphoe9,x
-2007,NA,9/23,Light Trap,Araneae,c13,2,,aranaea_morphoc13,x
-2007,NA,9/23,Light Trap,Araneae,c14,1,,aranaea_morphoc14,x
-2015,NC,9/23,pan,Hemiptera,e13,1,,,x
-2015,NC,9/23,pan,Diptera,e17,5,mosquito,dip_morphoe17,x
-2015,NC,9/23,pan,Diptera,e3,3,mosquito,,x
-2015,NC,9/23,pan,Diptera,e18,1,mosquito,dip_morphoe18,x
-2015,NC,9/23,pan,Hymenoptera,e19,1,larval bee?,hymenop_morphoe19,x
-2015,NC,9/23,pan,Unidentified,e20,1,pupae,unid_morpho20,x
-2013,NA,9/30,pan 2,Diptera,e17,5,cute :),,x
-2013,NA,9/30,pan 2,Diptera,e17,1,gross :),,x
-2013,NA,9/30,pan 1,Diptera,e7,1,,,x
-2013,NA,9/30,sweep,Hemiptera,e21,1,Chinavia hilaris,hemip_morphoe21,x
-2015,NC,9/30,pan,Diptera,c2,6,disgusting :),,x
-2015,NC,9/30,pan,Mantophasmatodea,e9,2,nasty :P,,x
-2007,NC,9/30,sweep,Hemiptera,e13,1,,,x
-2007,NC,9/30,sweep,Araneae,e22,1,,araneae_morphoe22,x
-2007,NC,9/30,sweep,Hemiptera,e23,1,,hemip_morphoe23,x
-2007,J,9/30,pan,Diptera,e6,5,,,x
-2007,J,9/30,pan,Diptera,e17,27,,,x
-2007,J,9/30,pan,Diptera,e18,1,,,x
-2007,J,9/30,pan,Mantophasmatodea,e9,1,,,x
-2015,NC,9/30,pan,Araneae,e22,1,,,x
-2015,NC,9/30,pan,Diptera,e6,2,,,x
-2015,NC,9/30,pan,Diptera,e18,2,,,x
-2015,NC,9/30,pan,Hemiptera,e20,2,"larva, ?",hemip_morphoe24,x
-2015,NC,9/30,pan,Diptera,e25,1,,dip_morphoe25,x
-2015,J,9/30,pan,Diptera,c2,2,flies ,,x
-2015,J,9/30,pan,Araneae,c13,2,spider,,x
-2015,NC,9/30,sweep,Coleoptera,e3,2,,,x
-2015,NC,9/30,sweep,Araneae,e1,1,,,x
-2015,NC,9/30,sweep,Hemiptera,c15,1,notoptera?,unid_morphoc14,x
+2015,NC,16-Sep,Sweep,Araneae,e1,2,,araneae_morpho1,x
+2015,NC,16-Sep,Sweep,Araneae,e2,1,,araneae_morpho1,x
+2015,NC,16-Sep,Sweep,Coleoptera,e3,6,,coleoptera_morpho3,x
+2015,NC,16-Sep,Sweep,Coleoptera,e4,3,,coleoptera_morpho4,x
+2015,NC,16-Sep,Sweep,Unidentified,e5,1,,unid_morpho5,x
+2007,J,16-Sep,Pan,Diptera,e6,3,Culicidae,dip_morphoe6,x
+2007,J,16-Sep,Pan,Diptera,e7,1,,dip_morphoe7,x
+2013,NA,16-Sep,Pan,Diptera,c1,9,gnat,,x
+2013,NA,16-Sep,Pan,Diptera,c2,3,fly,diptera_morphoc2,x
+2013,NA,16-Sep,Pan,Diptera,e6,1,mosquito,diptera_morphoc3,x
+2013,NA,16-Sep,Pan,Diptera,c4,1,,diptera_morphoc4,x
+2013,NA,16-Sep,Pan,Hemiptera,c5,1,small hopper,hemiptera_morphoc5,x
+2015,J,16-Sep,Sweep,Coleoptera,e3,9,,,x
+2015,J,16-Sep,Sweep,Diptera,e8,1,,dip_morphoe8,x
+2015,J,16-Sep,Pan,Diptera,c2,1,,,x
+2015,J,16-Sep,Pan,Diptera,c6,1,super very tiny,diptera_morphoc6,x
+2007,NC,16-Sep,Pan,Hemiptera,e6,1,,,x
+2007,NC,16-Sep,Pan,Mantophasmatodea,e9,1,,manto_morphoe9,x
+2013,NA,23-Sep,Pan,Diptera,e6,4,trap f-a and f-c flipped,dip_morphoe6,x
+2013,NA,23-Sep,Pan,Diptera,c2,5,trap f-a and f-c flipped,diptera_morphoc2,x
+2013,NA,23-Sep,Pan,Diptera,c7,2,trap f-a and f-c flipped,diptera_morphoc7,x
+2013,NA,23-Sep,Light Trap,Araneae,c8,1,trap f-a and f-c flipped,aranaea_morphoc8,x
+2013,NA,23-Sep,Light Trap,Araneae,c10,1,trap f-a and f-c flipped,aranaea_morphoc10,x
+2013,NA,23-Sep,Light Trap,Unidentified,c9,1,trap f-a and f-c flipped,unid_morphoc9,x
+2013,NA,23-Sep,sweep,Hymenoptera,e21,1,not collected,,x
+2007,NC,23-Sep,sweep,Lepidoptera,e10,1,,lep_morphoe10,x
+2007,NC,23-Sep,sweep,Hemiptera,e11,1,,hemip_morphoe11,x
+2007,NC,23-Sep,sweep,Coleoptera,e12,1,,col_morphoe12,x
+2007,NC,23-Sep,sweep,Hemiptera,e13,3,Cicadellidae ,hemip_morphoe13,x
+2007,NC,23-Sep,sweep,Coleoptera,e14,1,,unid_morphoe14,x
+2015,NC,23-Sep,Sweep,Coleoptera,e4,1,,coleoptera_morpho4,x
+2015,NC,23-Sep,Sweep,Coleoptera,e3,1,,coleoptera_morpho3,x
+2015,NC,23-Sep,Sweep,Araneae,c11,1,,aranaea_morphoc11,x
+2015,J,23-Sep,Pan,Diptera,e6,2,mosquito,diptera_morphoc3,x
+2015,J,23-Sep,Pan,Araneae,c12,1,,unid_morphoc12,x
+2007,NC,23-Sep,pan,Diptera,e6,2,"mosquito, trap f-d tipped",,x
+2007,NC,23-Sep,pan,Diptera,e7,2,trap f-d flipped,,x
+2007,NC,23-Sep,pan,Diptera,e4,2,trap f-d flipped,,x
+2007,NC,23-Sep,pan,Coleoptera,e15,2,trap f-d flipped,unid_morphoe15,x
+2007,NC,23-Sep,pan,Diptera,e16,1,"tiny, trap f-d flipped",dip_morphoe16,x
+2007,NA,23-Sep,Light Trap,Mantophasmatodea,e9,1,trap a (J) flipped,manto_morphoe9,x
+2007,NA,23-Sep,Light Trap,Araneae,c13,2,,aranaea_morphoc13,x
+2007,NA,23-Sep,Light Trap,Araneae,c14,1,,aranaea_morphoc14,x
+2015,NC,23-Sep,pan,Hemiptera,e13,1,,,x
+2015,NC,23-Sep,pan,Diptera,e17,5,mosquito,dip_morphoe17,x
+2015,NC,23-Sep,pan,Diptera,e3,3,mosquito,,x
+2015,NC,23-Sep,pan,Diptera,e18,1,mosquito,dip_morphoe18,x
+2015,NC,23-Sep,pan,Hymenoptera,e19,1,larval bee?,hymenop_morphoe19,x
+2015,NC,23-Sep,pan,Unidentified,e20,1,pupae,unid_morpho20,x
+2013,NA,30-Sep,pan 2,Diptera,e17,5,cute :),,x
+2013,NA,30-Sep,pan 2,Diptera,e17,1,gross :),,x
+2013,NA,30-Sep,pan 1,Diptera,e7,1,,,x
+2013,NA,30-Sep,sweep,Hemiptera,e21,1,Chinavia hilaris,hemip_morphoe21,x
+2015,NC,30-Sep,pan,Diptera,c2,6,disgusting :),,x
+2015,NC,30-Sep,pan,Mantophasmatodea,e9,2,nasty :P,,x
+2007,NC,30-Sep,sweep,Hemiptera,e13,1,,,x
+2007,NC,30-Sep,sweep,Araneae,e22,1,,araneae_morphoe22,x
+2007,NC,30-Sep,sweep,Hemiptera,e23,1,,hemip_morphoe23,x
+2007,J,30-Sep,pan,Diptera,e6,5,,,x
+2007,J,30-Sep,pan,Diptera,e17,27,,,x
+2007,J,30-Sep,pan,Diptera,e18,1,,,x
+2007,J,30-Sep,pan,Mantophasmatodea,e9,1,,,x
+2015,NC,30-Sep,pan,Araneae,e22,1,,,x
+2015,NC,30-Sep,pan,Diptera,e6,2,,,x
+2015,NC,30-Sep,pan,Diptera,e18,2,,,x
+2015,NC,30-Sep,pan,Hemiptera,e20,2,"larva, ?",hemip_morphoe24,x
+2015,NC,30-Sep,pan,Diptera,e25,1,,dip_morphoe25,x
+2015,J,30-Sep,pan,Diptera,c2,2,flies ,,x
+2015,J,30-Sep,pan,Araneae,c13,2,spider,,x
+2015,NC,30-Sep,sweep,Coleoptera,e3,2,,,x
+2015,NC,30-Sep,sweep,Araneae,e1,1,,,x
+2015,NC,30-Sep,sweep,Hemiptera,c15,1,notoptera?,unid_morphoc14,x
