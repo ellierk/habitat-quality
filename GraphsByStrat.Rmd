@@ -89,9 +89,8 @@ ggplot(ellieplants.strat, aes(fill=species, y=abundance, x=Strata)) +
     ggtitle("Plants") +
     xlab("Strata")+
     ylab("Shoot Count")+
-    #scale_fill_manual(values=wes_palette(n=5, name="Darjeeling2")) +
-    scale_fill_manual(values=c("#6e0475", "#638572", "#60aab5", "#c7ab10", "#265c20", "#0d0787"), labels = c(expression(paste("A.", italic("glomeratus"))), expression(paste("J.", italic("roemerianus"))),expression(paste("S.", italic("alterniflora"))), expression(paste("S.", italic("patens"))), expression(paste("S.", italic("sempervirens"))), expression(paste("T.", italic("latifolia"))))) +
-    theme(panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
+    scale_fill_manual(values=c("#6e0475", "#638572", "#60aab5", "#c7ab10", "#265c20", "#0d0787"), labels = c(expression(paste("A. ", italic("glomeratus"))), expression(paste("J.", italic("roemerianus"))),expression(paste("S.", italic("alterniflora"))), expression(paste("S.", italic("patens"))), expression(paste("S.", italic("sempervirens"))), expression(paste("T.", italic("latifolia"))))) +
+    theme(legend.text = element_text(size = "14"), panel.grid.major = element_blank(), panel.grid.major.x = element_blank(), axis.text.x = element_text(face="bold", size=12, family= "sans", colour = "black"), axis.text.y = element_text(face="bold", size=12, family= "sans", colour = "black"), text = element_text(face = "bold", size=16, family= "sans", colour = "black"), panel.grid.minor.x = element_blank(), panel.border = element_rect(fill=NA, colour = "black", size=1.25), panel.background = element_rect(fill='white', colour='black'))
 ```
 
 
