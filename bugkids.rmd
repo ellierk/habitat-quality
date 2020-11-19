@@ -23,6 +23,10 @@ library(reshape2)
 #source('C:/Users/jeffr/Documents/School/MATH 6315/diagPlots.R')
 #source('C:/Users/jeffr/Documents/School/MATH 6315/augPairs.R')
 
+```
+
+``` {}
+
 df1 <- read.csv("pan_fix.csv")
   
 df2 <- read.csv("sweep_fix.csv")
@@ -83,7 +87,7 @@ NCprar<- specaccum(NCpmat, method = "random", permutations = 999, conditioned = 
 HPprar<- specaccum(HPpmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 
 plot(juncusprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
-     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
      ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
 par(new = TRUE)
 plot(NCprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
@@ -93,14 +97,14 @@ par(new = TRUE)
 plot(HPprar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
      ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
-legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+legend("topleft", legend = c("orange - Juncus", "blue - Near Creek", "green - Hodgepodge"))
 
 juncusrar<- specaccum(juncussmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 NCsrar<- specaccum(NCsmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 HPsrar<- specaccum(HPsmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 
 plot(juncusrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
-     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
      ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
 par(new = TRUE)
 plot(NCsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
@@ -110,14 +114,14 @@ par(new = TRUE)
 plot(HPsrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
      ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
-legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+legend("topleft", legend = c("orange - Juncus", "blue - Near Creek", "green - Hodgepodge"))
 
 juncusplrar<- specaccum(juncusplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 NCplrar<- specaccum(NCplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 HPplrar<- specaccum(HPplmat, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
 
 plot(juncusplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
-     col = par("fg"), ci.col = "yellow", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
      ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
 par(new = TRUE)
 plot(NCplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
@@ -127,8 +131,108 @@ par(new = TRUE)
 plot(HPplrar, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
      col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
      ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
-legend("topleft", legend = c("yellow - Juncus", "blue - Near Creek", "green - Hodgepodge"))
+legend("topleft", legend = c("orange - Juncus", "blue - Near Creek", "green - Hodgepodge"))
 ```
+
+rarefaction by site
+
+```{r}
+pan2007 <- df1[df1$Site == "2007",]
+
+pan2013 <- df1[df1$Site == "2013",]
+
+pan2015 <- df1[df1$Site == "2015",]
+
+sweep2007 <- df2[df2$Site == "2007",]
+
+sweep2013 <- df2[df2$Site == "2013",]
+
+sweep2015 <- df2[df2$Site == "2015",]
+
+plant2007 <- df3[df3$site == "2007",]
+
+plant2013 <- df3[df3$site == "2013",]
+
+plant2015 <- df3[df3$site == "2015",]
+
+```
+
+```{r}
+pmat2007 <- as.matrix(pan2007[,5:13])
+
+pmat2013 <- as.matrix(pan2013[,5:13])
+
+pmat2015 <- as.matrix(pan2015[,5:13])
+
+smat2007 <- as.matrix(sweep2007[,5:12])
+
+smat2013 <- as.matrix(sweep2013[,5:12])
+
+smat2015 <- as.matrix(sweep2015[,5:12])
+
+plmat2007 <- as.matrix(plant2007[,4:12])
+
+plmat2013 <- as.matrix(plant2013[,4:12])
+
+plmat2015 <- as.matrix(plant2015[,4:12])
+```
+
+
+```{r rarefaction plots}
+
+prar2007<- specaccum(pmat2007, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+prar2013<- specaccum(pmat2013, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+prar2015<- specaccum(pmat2015, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(prar2007, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
+par(new = TRUE)
+plot(prar2013, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
+par(new = TRUE)
+plot(prar2015, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,9), xlab = "YPT Sets", ylab = "Orders")
+legend("topleft", legend = c("orange - 2007", "blue - 2013", "green - 2015"))
+
+srar2007<- specaccum(smat2007, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+srar2013<- specaccum(smat2013, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+srar2015<- specaccum(smat2015, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(srar2007, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
+par(new = TRUE)
+plot(srar2013, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
+par(new = TRUE)
+plot(srar2015, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,10), xlab = "Sweep Survey", ylab = "Orders")
+legend("topleft", legend = c("orange - 2007", "blue - 2013", "green - 2015"))
+
+plrar2007<- specaccum(plmat2007, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+plrar2013<- specaccum(plmat2013, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+plrar2015<- specaccum(plmat2015, method = "random", permutations = 999, conditioned = TRUE, gamma = "jack1")
+
+plot(plrar2007, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "orange", ci.lty = 1, lwd= 3.5, xlim = c(1,10),
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+par(new = TRUE)
+plot(plrar2013, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "blue", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+par(new = TRUE)
+plot(plrar2015, add = FALSE, ci = 1, ci.type = c("bar", "line", "polygon"), 
+     col = par("fg"), ci.col = "green", ci.lty = 1, lwd= 3.5, xlim = c(1,10), 
+     ylim = c(1,8), xlab = "Plant Survey", ylab = "Species")
+legend("topleft", legend = c("orange - 2007", "blue - 2013", "green - 2015"))
+```
+
+
 ```{r one-way PERMANOVA setup, echo=FALSE}
 
 df1<-na.omit(df1)
